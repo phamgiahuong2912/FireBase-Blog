@@ -34,9 +34,10 @@
         }
 
         .description {
-          word-break: break-word;
+          word-break: break-all;
           overflow: auto;
           max-height: 100px;
+          text-align: initial;
 
           &::-webkit-scrollbar {
             width: 2px;

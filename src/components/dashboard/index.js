@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import "./index.scss";
 import { firebaseBroad, firebaseDb } from "../../firebase";
 import ReactLoading from "react-loading";
+import parse from "html-react-parser";
+
 import { Link } from "react-router-dom";
 class DashBoard extends Component {
   state = {
@@ -28,7 +30,7 @@ class DashBoard extends Component {
   renderListBroad = (data, index) => (
     <div className="item-broad" key={index}>
       <div className="col-md-2 word-break">{data.title}</div>
-      <div className="col-md-6 description">{data.description}</div>
+      <div className="col-md-6 description">{parse(data.description)}</div>
       <div className="col-md-2 word-break">{data.author}</div>
       <div className="col-md-2 icon">
         <Link className="col-md-4 fas fa-eye" to={`/broad/detail/${data.id}`} />

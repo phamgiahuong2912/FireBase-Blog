@@ -1,4 +1,5 @@
 export const validation = (error, name, data, option) => {
+  console.log("d", data);
   option = option ? option : {};
   const required = "This is field required";
   const regEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;

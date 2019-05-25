@@ -3,6 +3,8 @@ import { firebaseDb } from "../../firebase";
 import ReactLoading from "react-loading";
 import "./index.scss";
 import { Link } from "react-router-dom";
+import parse from "html-react-parser";
+
 class BroadDetail extends Component {
   state = {
     isLoadding: true,
@@ -35,7 +37,7 @@ class BroadDetail extends Component {
           <h3 className="item">{objBroad.title}</h3>
           <div className="item">
             <h6>Description:</h6>
-            <div>{objBroad.description}</div>
+            <div>{parse(objBroad.description)}</div>
           </div>
           <div className="item">
             <h6>Author:</h6>

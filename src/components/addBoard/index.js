@@ -5,6 +5,8 @@ import { validation } from "../helpers/validation";
 import { firebaseBroad, firebaseDb } from "../../firebase";
 import ModalSuccess from "../helpers/modalSuccess";
 import "./index.scss";
+import RenderHTML from "react-render-html";
+
 import ReactLoading from "react-loading";
 import { Link } from "react-router-dom";
 class AddBroad extends Component {
@@ -35,8 +37,19 @@ class AddBroad extends Component {
   }
   _onChange = e => {
     let { error } = this.state;
-    error = validation(error, e.target.name, { [e.target.name]: e.target.value });
-    this.setState({ [e.target.name]: e.target.value, error });
+    if (typeof e === "string") {
+      let description = e;
+      // eslint-disable-next-line no-unused-expressions
+      if (!description) {
+        error.description = "This field is required";
+      } else {
+        delete error["description"];
+      }
+      this.setState({ description, error });
+    } else {
+      error = validation(error, e.target.name, { [e.target.name]: e.target.value });
+      this.setState({ [e.target.name]: e.target.value, error });
+    }
   };
   _handleAddBroad = () => {
     let { title, description, author, error } = this.state;
@@ -96,7 +109,7 @@ class AddBroad extends Component {
             placeholder="description"
             name="description"
             value={description}
-            onChange={this._onChange}
+            onChange={e => this._onChange(e)}
             error={error.description}
           />
           <InputField id="author" type="text" placeholder="Author" name="author" value={author} onChange={this._onChange} error={error.author} />
