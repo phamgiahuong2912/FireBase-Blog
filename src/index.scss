@@ -4,6 +4,42 @@
   box-sizing: border-box;
 }
 
+.input-field {
+  margin-bottom: 20px;
+  text-align: left;
+
+  input {
+    border-radius: 5px;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    margin-bottom: 5px;
+  }
+
+  .error {
+    color: red;
+  }
+}
+
+.error-api {
+  color: red;
+  margin-bottom: 5px;
+  text-align: left;
+  display: block;
+}
+
+input {
+  width: 100%;
+}
+
+input:focus {
+  outline: none;
+}
+
+.page-container {
+  margin: 50px 0px;
+  height: calc(85vh - 100px);
+}
+
 .home {
   height: 85vh;
 }
@@ -40,5 +76,79 @@
       }
 
     }
+  }
+}
+
+.react-loadding {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
+
+a {
+  color: white !important;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.modal-success {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -120%);
+  z-index: 8888;
+  display: flex;
+  width: 300px;
+  height: 200px;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  animation: modal 1s;
+  animation-fill-mode: forwards;
+  flex-direction: column;
+
+  .icon {
+    margin-bottom: 20px;
+    width: 100px;
+    height: 100px;
+    background: #82CE34;
+    border-radius: 50%;
+    box-sizing: border-box;
+    position: relative;
+  }
+
+  .mark {
+    height: 35px;
+    width: 20px;
+    background: none;
+    border: 1px solid;
+    border-width: 0px 5px 5px 0px;
+    transform: rotate(45deg);
+    box-sizing: border-box;
+    position: absolute;
+    left: 40px;
+    top: 25px;
+    color: white;
+  }
+
+  .text {
+    color: black;
+    font-size: 25px;
+    font-weight: 500;
+  }
+}
+
+@keyframes modal {
+  from {
+    transform: translate(-50%, -120%)
+  }
+
+  to {
+    transform: translate(-50%, -50%)
   }
 }
