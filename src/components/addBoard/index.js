@@ -40,11 +40,12 @@ class AddBroad extends Component {
   _handleAddBroad = () => {
     let { title, description, author, error } = this.state;
     let broadId = this.props.match.params.id;
-
+    let uid = JSON.parse(localStorage.getItem("user")).uid;
     let data = {
       title,
       description,
       author,
+      uid,
     };
     if (Object.keys(error).length === 0) {
       let url = "";
