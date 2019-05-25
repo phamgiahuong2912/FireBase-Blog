@@ -11,8 +11,9 @@ const routes = () => {
   return (
     <Layout>
       <Route exact path="/" component={Authenticate(Home, false)} />
-      <Route exact path="/dashboard" component={Authenticate(DashBoard, false)} />
-      <Route exact path="/add-broad" component={Authenticate(AddBroad, false)} />
+      <Route exact path="/broad" component={Authenticate(DashBoard, false)} />
+      <Route exact path="/broad/create" component={Authenticate(AddBroad, false)} />
+      <Route exact path="/broad/create/:id" component={Authenticate(AddBroad, false)} />
       <Route exact path="/register" component={Authenticate(Register, true)} />
       <Route exact path="/login" component={Authenticate(Login, true)} />
     </Layout>

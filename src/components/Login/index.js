@@ -34,7 +34,7 @@ class Login extends Component {
             localStorage.setItem("user", JSON.stringify(response.user));
             this.setState({ isLoadding: false, isOpen: true, text: "Login Success" }, () =>
               setTimeout(() => {
-                this.props.history.push("/dashboard");
+                this.props.history.push("/broad");
               }, 1500),
             );
           }

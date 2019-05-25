@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import InputField from "../helpers/inputField";
 import TextAreaField from "../helpers/textAreaField";
 import { validation } from "../helpers/validation";
-import { firebaseBroad } from "../../firebase";
+import { firebaseBroad, firebaseDb } from "../../firebase";
 import ModalSuccess from "../helpers/modalSuccess";
 import "./index.scss";
+import ReactLoading from "react-loading";
 class AddBroad extends Component {
   constructor(props, context) {
     super(props, context);
@@ -13,7 +14,23 @@ class AddBroad extends Component {
       title: "",
       author: "",
       error: {},
+      isLoadding: false,
+      isLoaddingPage: true,
     };
+  }
+  componentDidMount() {
+    let broadId = this.props.match.params.id;
+    if (broadId) {
+      firebaseDb
+        .ref(`broad/${broadId}`)
+        .once("value")
+        .then(data => {
+          data = data.val();
+          this.setState({ title: data.title, description: data.description, author: data.author, isLoaddingPage: false });
+        });
+    } else {
+      this.setState({ isLoaddingPage: false });
+    }
   }
   _onChange = e => {
     let { error } = this.state;
@@ -22,16 +39,27 @@ class AddBroad extends Component {
   };
   _handleAddBroad = () => {
     let { title, description, author, error } = this.state;
+    let broadId = this.props.match.params.id;
+
     let data = {
       title,
       description,
       author,
     };
     if (Object.keys(error).length === 0) {
-      firebaseBroad.push(data).then(() => {
-        this.setState({ isLoadding: false, isOpen: true, text: "Create is success" }, () =>
+      let url = "";
+      let text = "";
+      if (broadId) {
+        url = firebaseDb.ref(`broad/${broadId}`).update(data);
+        text = "Update Success";
+      } else {
+        url = firebaseBroad.push(data);
+        text = "Create Success";
+      }
+      url.then(() => {
+        this.setState({ isLoadding: false, isOpen: true, text: text }, () =>
           setTimeout(() => {
-            this.props.history.push("/dashboard");
+            this.props.history.push("/broad");
           }, 1500),
         );
       });
@@ -49,6 +77,8 @@ class AddBroad extends Component {
         pointerEvents: "none",
       };
     }
+    if (this.state.isLoaddingPage)
+      return <ReactLoading delay={0} color="tomato" width={65} height={65} type={"spinningBubbles"} className="react-loadding" />;
     return (
       <div className="container">
         <ModalSuccess text={this.state.text} isLoadding={this.state.isLoadding} isOpen={this.state.isOpen} />

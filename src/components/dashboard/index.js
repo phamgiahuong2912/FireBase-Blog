@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./index.scss";
 import { firebaseBroad } from "../../firebase";
 import ReactLoading from "react-loading";
+import { Link } from "react-router-dom";
 class DashBoard extends Component {
   state = {
     listBroad: [],
@@ -24,8 +25,8 @@ class DashBoard extends Component {
       <div className="col-md-6 description">{data.description}</div>
       <div className="col-md-2">{data.author}</div>
       <div className="col-md-2 icon">
-        <div className="col-md-4 fas fa-eye" />
-        <div className="col-md-4 fas fa-edit" />
+        <Link className="col-md-4 fas fa-eye" to={`/broad/detail/${data.id}`} />
+        <Link className="col-md-4 fas fa-edit" to={`/broad/create/${data.id}`} />
         <div className="col-md-4 fas fa-trash-alt" />
       </div>
     </div>
@@ -37,10 +38,10 @@ class DashBoard extends Component {
     return (
       <div className="container">
         <div className="dashboard">
-          <h1>DASHBOARD</h1>
-          <p>Welcome to dashboard</p>
+          <h1>Broad</h1>
+          <p>Welcome To Broad</p>
 
-          <input defaultValue="ADD YOUR BROAD" className="btn btn-info" onClick={() => this.props.history.push("/add-broad")} />
+          <input defaultValue="ADD YOUR BROAD" className="btn btn-info" onClick={() => this.props.history.push("/broad/create")} />
           <div className="content">
             <div className="thead">
               <div className="col-md-2">Title</div>

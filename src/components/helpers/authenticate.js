@@ -7,7 +7,7 @@ export default function(ComponentAuthen, isPublish) {
       if (!user && !isPublish) {
         this.props.history.push("/login");
       } else if (user && isPublish) {
-        this.props.history.push("/dashboard");
+        this.props.history.push("/broad");
       }
     }
     render() {
