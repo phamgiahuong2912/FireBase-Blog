@@ -27,16 +27,16 @@ class DashBoard extends Component {
   };
   renderListBroad = (data, index) => (
     <div className="item-broad" key={index}>
-      <div className="col-md-2">{data.title}</div>
+      <div className="col-md-2 word-break">{data.title}</div>
       <div className="col-md-6 description">{data.description}</div>
-      <div className="col-md-2">{data.author}</div>
+      <div className="col-md-2 word-break">{data.author}</div>
       <div className="col-md-2 icon">
         <Link className="col-md-4 fas fa-eye" to={`/broad/detail/${data.id}`} />
         <Link className="col-md-4 fas fa-edit" to={`/broad/create/${data.id}`} />
         <div
           className="col-md-4 fas fa-trash-alt"
           onClick={() => {
-            firebaseDb.ref(`broad/${data.id}`).remove(res => {
+            firebaseDb.ref(`broad/${data.id}`).remove(() => {
               this.setState({ isLoadding: true });
               setTimeout(() => this.getListBroad(), 1500);
             });

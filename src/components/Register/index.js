@@ -37,7 +37,7 @@ class Register extends Component {
           }
         })
         .catch(e => {
-          this.setState({ errorApi: e.message });
+          this.setState({ errorApi: e.message, isLoadding: false });
         });
       this.setState({ isLoadding: true });
     }
@@ -47,7 +47,7 @@ class Register extends Component {
     let disable = {
       cursor: "pointer",
     };
-    if (!email || !password || !confirmPassWord) {
+    if (!email || !password || !confirmPassWord || Object.keys(error).length > 0) {
       disable = {
         opacity: 0.5,
         pointerEvents: "none",

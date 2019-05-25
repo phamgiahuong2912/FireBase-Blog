@@ -41,6 +41,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.resolve("./public/index.html"),
     }),
-    new CopyPlugin([{ from: "./public/favicon.ico" }, { from: "./public/manifest.json" }]),
+    new CopyPlugin([{ from: "./public/favicon.ico" }, { from: "./public/layout.jpg" }, { from: "./public/manifest.json" }]),
   ],
 };

@@ -6,6 +6,7 @@ import { firebaseBroad, firebaseDb } from "../../firebase";
 import ModalSuccess from "../helpers/modalSuccess";
 import "./index.scss";
 import ReactLoading from "react-loading";
+import { Link } from "react-router-dom";
 class AddBroad extends Component {
   constructor(props, context) {
     super(props, context);
@@ -83,6 +84,9 @@ class AddBroad extends Component {
     return (
       <div className="container">
         <ModalSuccess text={this.state.text} isLoadding={this.state.isLoadding} isOpen={this.state.isOpen} />
+        <Link style={{ padding: "10px 40px" }} to="/broad" className="btn btn-info">
+          Back
+        </Link>
         <div className="add-broad col-8">
           <h1>Add Your Broad</h1>
           <InputField id="title" type="text" placeholder="Title" name="title" value={title} onChange={this._onChange} error={error.title} />

@@ -51,7 +51,9 @@ class Header extends Component {
         {/* <ModalSucces isOpen={this.state.isOpen} isLoadding={this.state.isLoadding} text={this.state.text} /> */}
         <div className="content">
           <div className="left">
-            <span>Developer</span>
+            <span onClick={() => window.location.replace("/")} style={{ cursor: "pointer" }}>
+              Developer
+            </span>
             <span className="title">Front End</span>
           </div>
           <div className="right">{contentRight}</div>

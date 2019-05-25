@@ -17,6 +17,22 @@
         border-bottom: 1px solid #e0e0e0;
         padding: 20px 0px;
 
+        .word-break {
+          word-break: break-all;
+          max-height: 100px;
+          overflow: auto;
+
+          &::-webkit-scrollbar {
+            width: 2px;
+          }
+
+          &::-webkit-scrollbar-thumb {
+            background: tomato;
+            border-radius: 20px;
+
+          }
+        }
+
         .description {
           word-break: break-word;
           overflow: auto;
