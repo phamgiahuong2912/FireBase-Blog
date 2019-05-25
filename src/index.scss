@@ -36,8 +36,20 @@ input:focus {
 }
 
 .page-container {
-  margin: 50px 0px;
-  height: calc(85vh - 100px);
+  margin: 50px 2px;
+  overflow: auto;
+  height: calc(85vh - 110px);
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: tomato;
+    border-radius: 20px;
+
+  }
+
 }
 
 .home {
@@ -141,6 +153,29 @@ a:hover {
     font-size: 25px;
     font-weight: 500;
   }
+}
+
+.textarea-field {
+  width: 100%;
+  margin-bottom: 20px;
+
+  textarea {
+    border-radius: 5px;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    margin-bottom: 5px;
+    width: 100%;
+  }
+
+  .error {
+    display: block;
+    text-align: left;
+    color: red;
+  }
+}
+
+textarea:focus {
+  outline: none;
 }
 
 @keyframes modal {
