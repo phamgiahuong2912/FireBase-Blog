@@ -54,7 +54,7 @@ class AddBroad extends Component {
   _handleAddBroad = () => {
     let { title, description, author, error } = this.state;
     let broadId = this.props.match.params.id;
-    let uid = JSON.parse(localStorage.getItem("user")).uid;
+    let uid = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")).uid : "";
     let data = {
       title,
       description,

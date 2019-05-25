@@ -15,7 +15,7 @@ class DashBoard extends Component {
   }
   getListBroad = () => {
     let listBroad = [];
-    let uid = JSON.parse(localStorage.getItem("user")).uid;
+    let uid = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")).uid : "";
     firebaseBroad.once("value").then(response => {
       response.forEach(record => {
         let value = record.val();
