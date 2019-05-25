@@ -1,0 +1,55 @@
+.dashboard {
+  .content {
+    .thead {
+      display: flex;
+      text-align: center;
+      border-bottom: 1px solid #e0e0e0;
+      padding: 20px 0px;
+      margin-bottom: 10px;
+
+    }
+
+    .body {
+      .item-broad {
+        display: flex;
+        text-align: center;
+        align-items: center;
+        border-bottom: 1px solid #e0e0e0;
+        padding: 20px 0px;
+
+        .description {
+          word-break: break-word;
+          overflow: auto;
+          max-height: 100px;
+
+          &::-webkit-scrollbar {
+            width: 2px;
+          }
+
+          &::-webkit-scrollbar-thumb {
+            background: tomato;
+            border-radius: 20px;
+
+          }
+        }
+
+        .icon {
+          display: flex
+        }
+
+        .fas {
+          padding: 0px;
+        }
+
+        .fas::before {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  input {
+    max-width: 160px;
+
+  }
+}
