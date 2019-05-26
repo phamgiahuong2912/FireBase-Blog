@@ -20,7 +20,6 @@ class Header extends Component {
   };
   render() {
     let user = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : "";
-    // let { user } = this.props;
     let contentRight = "";
     if (user) {
       contentRight = (
@@ -37,11 +36,11 @@ class Header extends Component {
         <div>
           <Link to="/register">
             {" "}
-            <span style={{ marginRight: "10px" }}>Sign Up</span>
+            <span style={{ marginRight: "10px", color: "white" }}>Sign Up</span>
           </Link>
           <Link to="/login">
             {" "}
-            <span>Login</span>
+            <span style={{ color: "white" }}>Login</span>
           </Link>
         </div>
       );

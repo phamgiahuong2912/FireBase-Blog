@@ -97,7 +97,7 @@ class AddBroad extends Component {
     return (
       <div className="container">
         <ModalSuccess text={this.state.text} isLoadding={this.state.isLoadding} isOpen={this.state.isOpen} />
-        <Link style={{ padding: "10px 40px" }} to="/broad" className="btn btn-info">
+        <Link style={{ padding: "10px 40px", color: "white !important" }} to="/broad" className="btn btn-info">
           Back
         </Link>
         <div className="add-broad col-8">

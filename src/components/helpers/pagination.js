@@ -2,7 +2,7 @@ import React, { Component } from "react";
 class Pagination extends Component {
   state = {
     currentPage: 1,
-    limit: 10,
+    limit: 5,
     pageSize: 5,
     startIndex: "",
     endIndex: "",
