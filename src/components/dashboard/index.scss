@@ -23,6 +23,7 @@
           word-break: break-all;
           max-height: 100px;
           overflow: auto;
+          overflow-x: hidden;
 
           &::-webkit-scrollbar {
             width: 2px;
@@ -39,7 +40,8 @@
           word-break: break-all;
           overflow: auto;
           max-height: 100px;
-          text-align: center;
+          text-align: center !important;
+          text-align-last: center;
 
           &::-webkit-scrollbar {
             width: 2px;
@@ -50,6 +52,10 @@
             border-radius: 20px;
 
           }
+        }
+
+        .description>div {
+          padding: 0px !important;
         }
 
         .icon {

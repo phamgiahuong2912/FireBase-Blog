@@ -35,9 +35,9 @@ class BroadDetail extends Component {
         <h1 style={{ color: "#014D9F" }}>Broad Detail</h1>
         <div className="broad-detail">
           <h3 className="item">{objBroad.title}</h3>
-          <div className="item">
+          <div className="item description">
             <h6>Description:</h6>
-            <div>{parse(objBroad.description)}</div>
+            {parse(objBroad.description)}
           </div>
           <div className="item">
             <h6>Author:</h6>
