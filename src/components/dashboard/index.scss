@@ -1,5 +1,7 @@
 .dashboard {
   .content {
+    position: relative;
+
     .thead {
       display: flex;
       text-align: center;
@@ -37,7 +39,7 @@
           word-break: break-all;
           overflow: auto;
           max-height: 100px;
-          text-align: initial;
+          text-align: center;
 
           &::-webkit-scrollbar {
             width: 2px;

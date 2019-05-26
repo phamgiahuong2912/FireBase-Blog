@@ -3,17 +3,18 @@ import "./index.scss";
 import { firebaseBroad, firebaseDb } from "../../firebase";
 import ReactLoading from "react-loading";
 import parse from "html-react-parser";
-
+import Pagination from "../helpers/pagination";
 import { Link } from "react-router-dom";
 class DashBoard extends Component {
   state = {
     listBroad: [],
     isLoadding: true,
+    listBroadRender: [],
   };
   componentDidMount() {
     this.getListBroad();
   }
-  getListBroad = () => {
+  getListBroad = e => {
     let listBroad = [];
     let uid = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")).uid : "";
     firebaseBroad.once("value").then(response => {
@@ -23,8 +24,8 @@ class DashBoard extends Component {
         if (value.uid === uid) {
           listBroad.push({ id, ...value });
         }
-        this.setState({ listBroad, isLoadding: false });
       });
+      this.setState({ listBroad, isLoadding: false });
     });
   };
   renderListBroad = (data, index) => (
@@ -47,6 +48,11 @@ class DashBoard extends Component {
       </div>
     </div>
   );
+  onChangePage = listBroad => {
+    let listBroadRender = listBroad;
+
+    this.setState({ listBroadRender });
+  };
   render() {
     if (this.state.isLoadding) {
       return <ReactLoading delay={0} color="tomato" width={65} height={65} type={"spinningBubbles"} className="react-loadding" />;
@@ -65,7 +71,8 @@ class DashBoard extends Component {
               <div className="col-md-2">Author</div>
               <div className="col-md-2">Action</div>
             </div>
-            <div className="body">{this.state.listBroad.map(this.renderListBroad, this)}</div>
+            <div className="body">{this.state.listBroadRender.map(this.renderListBroad, this)}</div>
+            <Pagination listBroad={this.state.listBroad} onChangePage={this.onChangePage} />
           </div>
         </div>
       </div>

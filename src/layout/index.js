@@ -11,7 +11,6 @@ class Layout extends Component {
       removeAttribute = "remove";
       this.setState({ removeAttribute });
     }
-    console.log("hehe");
   }
   render() {
     return (

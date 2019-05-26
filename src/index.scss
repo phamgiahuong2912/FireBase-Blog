@@ -6,6 +6,27 @@
   list-style-position: inside;
 }
 
+.pagination {
+  display: flex;
+  position: absolute;
+  right: 0px;
+  margin-top: 10px;
+
+  .index {
+    border: 1px solid #ddd;
+    background: white;
+    padding: 5px;
+    color: #337ab7;
+    padding: 10px 15px;
+    cursor: pointer;
+  }
+
+  .active {
+    color: white;
+    background: #337AB7;
+  }
+}
+
 .home {
   height: 85vh;
   background: url(/layout.jpg);
@@ -135,7 +156,7 @@ input:focus {
 }
 
 a {
-  color: white !important;
+  color: black !important;
   text-decoration: none;
 }
 
