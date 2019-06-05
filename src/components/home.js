@@ -2,6 +2,18 @@ import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 
 class Home extends Component {
+  constructor(props, context) {
+    super(props, context);
+    this.deferredPrompt = "";
+  }
+
+  componentDidMount() {
+    // window.deferredPrompt.prompt();
+    console.log("deferredPrompt", this.deferredPrompt);
+  }
+  click = e => {
+    console.log(e);
+  };
   render() {
     return (
       <div className="home">
@@ -9,7 +21,7 @@ class Home extends Component {
           <div className="item">
             <h1>Developer FrontEnd</h1>
             <div className="bottom">
-              <div onClick={() => window.location.replace("/register")} className="btn btn-light">
+              <div onpromt onClick={() => window.location.replace("/register")} className="btn btn-light">
                 SignUp
               </div>
               <div onClick={() => window.location.replace("/login")} className="btn btn-info">

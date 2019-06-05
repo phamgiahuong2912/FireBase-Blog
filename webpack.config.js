@@ -11,7 +11,7 @@ module.exports = {
   },
   devServer: {
     open: true,
-    port: 3003,
+    port: 8080,
     historyApiFallback: true,
   },
   devtool: "eval-source-map",
@@ -41,6 +41,12 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.resolve("./public/index.html"),
     }),
-    new CopyPlugin([{ from: "./public/favicon.ico" }, { from: "./public/layout.jpg" }, { from: "./public/manifest.json" }]),
+    new CopyPlugin([
+      { from: "./public/favicon.ico" },
+      { from: "./public/hehe.png" },
+      { from: "./public/service-worker.js" },
+      { from: "./public/layout.jpg" },
+      { from: "./public/manifest.json" },
+    ]),
   ],
 };

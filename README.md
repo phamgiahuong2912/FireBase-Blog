@@ -8,6 +8,6 @@ if user already login will not access to the login/signup page, and so need logo
 if access url not exist in path route redirect Page Not Found
 Limit product show in the broad page is 10
 --Run project
-clone source https://github.com/phamgiahuong2912/FireBase-Blog
+clone source from brand master https://github.com/phamgiahuong2912/FireBase-Blog
 install dependence yarn install
 run yarn start
